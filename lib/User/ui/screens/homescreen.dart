@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
       body: Stack(
         children:<Widget>[
-            Header(),
+            Header(texto: "Descrube",),
           Column(
             children:<Widget>[
 
