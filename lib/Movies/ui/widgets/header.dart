@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 
-class Header extends StatefulWidget {
+class HeaderMovies extends StatefulWidget {
   final  String texto;
-  Header({Key key, @required this.texto}) : super(key: key);
+  HeaderMovies({Key key, @required this.texto}) : super(key: key);
 
   @override
-  _HeaderState createState() => _HeaderState();
+  _HeaderMoviesState createState() => _HeaderMoviesState();
 }
 
-class _HeaderState extends State<Header> {
+class _HeaderMoviesState extends State<HeaderMovies> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

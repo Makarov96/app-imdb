@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movies/User/ui/widgets/exports.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -16,7 +15,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
       body: Stack(
         children:<Widget>[
-            Header(texto: "Descrube",),
           Column(
             children:<Widget>[
 
