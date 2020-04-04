@@ -23,8 +23,8 @@ class _HeaderMoviesState extends State<HeaderMovies> {
           child: Row(
             children:<Widget>[
                 Text(widget.texto, style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 25,
                   color: Colors.black
                 )),
                 Spacer(),

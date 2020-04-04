@@ -18,7 +18,7 @@ class _ScreenMoviesState extends State<ScreenMovies> {
       body: Stack(
         children: <Widget>[
           GridViewMovies(),
-           HeaderMovies(texto: "Descrubre"),
+           HeaderMovies(texto: "Descubre"),
         ],
       ),
     );

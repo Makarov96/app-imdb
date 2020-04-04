@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/Movies/ui/screens/screenmovies.dart';
+import 'Movies/bloc/blocmovies.dart';
+import 'Movies/ui/screens/screenreviewmovie.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -15,12 +18,24 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark),
     );
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: ScreenMovies(),
-    );
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider<BlocMovies>(create: (context)=>BlocMovies())
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: ScreenMovies(),
+          routes: <String, WidgetBuilder>{
+        '/reviewmovies': (BuildContext context) => ScreenReviewMovie(),
+      },
+        ));
   }
 }
+
+/*
+
+
+*/
