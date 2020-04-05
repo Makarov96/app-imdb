@@ -1,11 +1,12 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/Movies/bloc/blocmovies.dart';
 import 'package:movies/Movies/model/moviemodel.dart';
-import 'package:movies/Movies/ui/widgets/card_info_movies.dart';
-import 'package:movies/Screen_Sizes/responsive_screens.dart';
+import 'package:movies/Movies/ui/widgets/exports.dart';
+import 'package:movies/Widgets/Screen_Sizes/responsive_screens.dart';
+
+
 
 class GridViewMovies extends StatefulWidget {
   double _crossAxisSpacing = 15, _mainAxisSpacing = 12, _aspectRatio = 1;
@@ -92,6 +93,3 @@ class _GridViewMoviesState extends State<GridViewMovies> {
             }));
   }
 }
- /* 
-  
- */

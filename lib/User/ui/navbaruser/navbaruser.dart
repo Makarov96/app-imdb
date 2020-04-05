@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/Movies/bloc/blocmovies.dart';
 import 'package:movies/Movies/ui/screens/screenmovies.dart';
+import 'package:movies/User/bloc/userbloc.dart';
+import 'package:movies/User/ui/screens/homescreen.dart';
 
 class NavBarUser extends StatefulWidget {
   @override
@@ -38,6 +40,7 @@ class _NavBarUser extends State<NavBarUser> {
       },
       children: <Widget>[
         ScreenMovies(),
+        HomeScreen()
       ],
     );
 
@@ -60,7 +63,10 @@ class _NavBarUser extends State<NavBarUser> {
           ),
         ),
       ),
-      providers: [BlocProvider<BlocMovies>(create: (context) => BlocMovies())],
+      providers: [
+        BlocProvider<BlocMovies>(create: (context) => BlocMovies()),
+        BlocProvider<UserBloc>(create: (context)=> UserBloc())
+      ],
     );
   }
 }

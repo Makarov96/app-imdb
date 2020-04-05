@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movies/Movies/ui/screens/searchmoviewscreen.dart';
+import 'package:movies/Widgets/Transitions/slide_route.dart';
 
 
 class HeaderMovies extends StatefulWidget {
@@ -28,7 +30,9 @@ class _HeaderMoviesState extends State<HeaderMovies> {
                   color: Colors.black
                 )),
                 Spacer(),
-                IconButton(icon: Icon(Icons.search), onPressed: (){},
+                IconButton(icon: Icon(Icons.search), onPressed: (){
+                 Navigator.push(context, SlideLeftRoute(page: ScreenSearchMovies()));
+                },
                 iconSize: 35,
                 color: Colors.black,
                 )

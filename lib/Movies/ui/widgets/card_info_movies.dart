@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:movies/Movies/model/moviemodel.dart';
 import 'package:movies/Movies/ui/screens/screenreviewmovie.dart';
 import 'package:movies/Utils/config.dart';
+import 'package:movies/Widgets/Transitions/fade_route.dart';
+
 
 class CardinfoMovies extends StatefulWidget {
   final Movie movie;
@@ -26,7 +28,7 @@ class _CardinfoMoviesState extends State<CardinfoMovies> {
         padding: EdgeInsets.all(12.0),
         child: Column(children: <Widget>[
           GestureDetector(
-                      child: Container(
+            child: Container(
               height: screenHeight * 0.3,
               width: screenWidth * 0.4,
               decoration: BoxDecoration(
@@ -39,17 +41,17 @@ class _CardinfoMoviesState extends State<CardinfoMovies> {
               ),
             ),
             onTap: () {
-               Navigator.push(
+              Navigator.push(
                   context,
-                  new MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          new ScreenReviewMovie(
-                            movie: Movie(
-                                    title: widget.movie.title,
-                                    voteAverage: widget.movie.voteAverage,
-                                    overview: widget.movie.overview, 
-                                    backdropPath: widget.movie.backdropPath),)));
-              },
+                  FadeRoute(
+                      page: ScreenReviewMovie(
+                    movie: Movie(
+                        title: widget.movie.title,
+                        voteAverage: widget.movie.voteAverage,
+                        overview: widget.movie.overview,
+                        backdropPath: widget.movie.backdropPath),
+                  )));
+            },
           ),
           Container(
               margin: EdgeInsets.only(top: 1.5),
@@ -57,7 +59,7 @@ class _CardinfoMoviesState extends State<CardinfoMovies> {
               child: AutoSizeText("${widget.movie.title}",
                   style: TextStyle(
                       fontWeight: FontWeight.w400,
-                      fontSize: (widget.movie.title.length > 18)?10:12,
+                      fontSize: (widget.movie.title.length > 18) ? 10 : 12,
                       color: Colors.white))),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -88,4 +90,3 @@ class _CardinfoMoviesState extends State<CardinfoMovies> {
     );
   }
 }
-

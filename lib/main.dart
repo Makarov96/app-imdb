@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/Movies/ui/screens/screenmovies.dart';
+import 'package:movies/Movies/ui/screens/searchmoviewscreen.dart';
 import 'package:movies/User/ui/navbaruser/navbaruser.dart';
 import 'Movies/bloc/blocmovies.dart';
 import 'Movies/ui/screens/screenreviewmovie.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
           home: NavBarUser(),
           routes: <String, WidgetBuilder>{
         '/reviewmovies': (BuildContext context) => ScreenReviewMovie(),
+        '/searchmovies':(BuildContext context) => ScreenSearchMovies()
       },
         ));
   }
