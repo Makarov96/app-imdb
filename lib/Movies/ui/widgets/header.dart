@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:movies/Movies/ui/screens/searchmoviewscreen.dart';
 import 'package:movies/Widgets/Transitions/slide_route.dart';
 
-
 class HeaderMovies extends StatefulWidget {
   final  String texto;
   HeaderMovies({Key key, @required this.texto}) : super(key: key);

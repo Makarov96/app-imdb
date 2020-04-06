@@ -4,6 +4,7 @@ class Config {
   static String user_id = "9193257";
   static String session_id = "c6ba0de85bed60be07b0cd285c6493ef6af97f3d";
   static String api_key ="a0376359a8bb816ae7266e4dda409ed1";
+  static Map<String, String> headers = {"Content-type": "application/json"};
 
   //Part that is concatenated at the begind of the images
   static String imagePathURL = "https://image.tmdb.org/t/p/w500";
@@ -20,26 +21,20 @@ class Config {
   static String findEndMoviePart = "&page=1&include_adult=false";
 
 
-  //PENDIENTE traer lista de mis peliculas favorita
-  static String myfavoriteMoviesList = "https://api.themoviedb.org/3/account/${user_id}/favorite/movies?api_key=${api_key}&session_id=${session_id}&language=en-US&sort_by=created_at.asc&page=1";
+  //get list favorites movies
+  static String myfavoriteMoviesList = "${urlTMDB}3/account/${user_id}/favorite/movies?api_key=${api_key}&session_id=${session_id}&language=en-US&sort_by=created_at.asc&page=1";
 
 
-  //PENDIENTE marcar como favorito
+  //add to my favorites list
   static String addFavoriteMovie = "${urlTMDB}3/account/${user_id}/favorite?api_key=${api_key}&session_id=${session_id}";
-  /*
-  method: post
-  json info:
-  {
-  "media_type": "movie",
-  "media_id": 550,
-  "favorite": true
-  }
-   */
+
+
+  //get  watchlist 
+  static String myWatchlist = "${urlTMDB}3/account/${user_id}/watchlist/movies?api_key=${api_key}&language=en-US&session_id=${session_id}&sort_by=created_at.asc&page=1";
+
+  //add movie to watchlist
+  static String addWatchList = "${urlTMDB}3/account/${user_id}/watchlist?api_key=${api_key}&session_id=${session_id}";
 
 }
 
-/**
- * private key of TMDB: c6ba0de85bed60be07b0cd285c6493ef6af97f3d
- * my favorite movie: https://api.themoviedb.org/3/account/{9193257}/favorite/movies?api_key={a0376359a8bb816ae7266e4dda409ed1}&session_id={c6ba0de85bed60be07b0cd285c6493ef6af97f3d}
- * 
-*/
+

@@ -84,6 +84,8 @@ class _GridViewMoviesState extends State<GridViewMovies> {
               return FadeInLeft(
                 duration:  Duration(milliseconds: 10*i),
                 child: CardinfoMovies(movie: Movie(
+                  mediaType: movie.mediaType,
+                  id: movie.id,
                   backdropPath: movie.backdropPath ,
                   overview: movie.overview ,
                   posterPath: movie.posterPath, 

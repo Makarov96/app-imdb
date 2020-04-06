@@ -25,13 +25,14 @@ class PersonalInfoUser extends StatelessWidget {
 
     final name_user = Container(
         child: AutoSizeText("${userModel.username}", style: TextStyle(
-          color: Colors.white,
+          color: Colors.black,
           fontSize: 25,
           fontWeight: FontWeight.w500
         )),
     );
 
     return Container(
+  
       child: Column(children: <Widget>[
 
         Center(child: profile_user),

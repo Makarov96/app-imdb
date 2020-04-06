@@ -1,17 +1,19 @@
 import 'dart:convert';
 
+import 'package:equatable/equatable.dart';
+
 UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
 
 String userModelToJson(UserModel data) => json.encode(data.toJson());
 
-class UserModel {
+class UserModel extends Equatable {
     Avatar avatar;
     int id;
     String iso6391;
     String iso31661;
     String name;
     bool includeAdult;
-    String username;
+    final String username;
 
     UserModel({
         this.avatar,
@@ -42,6 +44,10 @@ class UserModel {
         "include_adult": includeAdult,
         "username": username,
     };
+
+  @override
+  // TODO: implement props
+  List<Object> get props => null;
 }
 
 class Avatar {

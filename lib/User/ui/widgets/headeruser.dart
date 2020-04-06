@@ -23,13 +23,13 @@ class HeaderUser extends StatelessWidget {
 
               case  ConnectionState.none:
                   return Center(
-                    child: CircularProgressIndicator(),
+                    child: Container(),
                   );
                 break;
 
               case  ConnectionState.waiting:
                   return Center(
-                    child: CircularProgressIndicator(),
+                    child: Container(),
                   );
                 break;
 

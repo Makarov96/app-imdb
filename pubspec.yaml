@@ -25,6 +25,13 @@ dependencies:
   animate_do: ^1.6.3
   shimmer: ^1.1.0
   auto_size_text: ^2.1.0
+  flappy_search_bar: ^1.7.2
+  sliver_fill_remaining_box_adapter: ^0.1.1
+  equatable: ^1.1.1
+  hydrated_bloc: ^3.0.0
+  json_annotation: ^3.0.1
+  json_serializable: ^3.3.0
+  build_runner: ^1.8.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

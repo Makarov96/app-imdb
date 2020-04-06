@@ -10,6 +10,10 @@ class InformationMovieReview extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+     String imgagePath = "${Config.imagePathURL}${movie.backdropPath}";
+    (imgagePath == "https://image.tmdb.org/t/p/w500null")
+        ? imgagePath = "https://bosquelya.com/img/not-available.png"
+        : imgagePath = imgagePath;
     return ShaderMask(
         shaderCallback: (rect) {
           return LinearGradient(
@@ -25,8 +29,7 @@ class InformationMovieReview extends StatelessWidget {
           decoration: BoxDecoration(
               image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: NetworkImage(
-                      "${Config.imagePathURL}${movie.backdropPath}"))),
+                  image: NetworkImage(imgagePath))),
         ));
   }
 }

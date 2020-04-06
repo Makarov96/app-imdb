@@ -46,7 +46,7 @@ class Result {
     String title;
     double voteAverage;
     String overview;
-    DateTime releaseDate;
+   
 
     Result({
         this.popularity,
@@ -62,7 +62,7 @@ class Result {
         this.title,
         this.voteAverage,
         this.overview,
-        this.releaseDate,
+     
     });
 
     factory Result.fromJson(Map<String, dynamic> json) => Result(
@@ -79,7 +79,7 @@ class Result {
         title: json["title"],
         voteAverage: json["vote_average"].toDouble(),
         overview: json["overview"],
-        releaseDate: DateTime.parse(json["release_date"]),
+     
     );
 
     Map<String, dynamic> toJson() => {
@@ -96,6 +96,6 @@ class Result {
         "title": title,
         "vote_average": voteAverage,
         "overview": overview,
-        "release_date": "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
+     
     };
 }

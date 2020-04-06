@@ -1,14 +1,18 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies/Movies/bloc/blocmovies.dart';
+import 'package:movies/Movies/model/addlikemovie.dart';
 import 'package:movies/Movies/model/moviemodel.dart';
 import 'package:movies/Movies/ui/screens/screenreviewmovie.dart';
+import 'package:movies/User/bloc/userbloc.dart';
 import 'package:movies/Utils/config.dart';
 import 'package:movies/Widgets/Transitions/fade_route.dart';
 
-
 class CardinfoMovies extends StatefulWidget {
   final Movie movie;
+   bool cap;
 
   CardinfoMovies({Key key, this.movie}) : super(key: key);
 
@@ -17,8 +21,15 @@ class CardinfoMovies extends StatefulWidget {
 }
 
 class _CardinfoMoviesState extends State<CardinfoMovies> {
+  UserBloc  userBloc;
+ 
   @override
+  void initState() { 
+    super.initState();
+    widget.cap=false;
+  }
   Widget build(BuildContext context) {
+    userBloc = BlocProvider.of(context);
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
@@ -67,12 +78,24 @@ class _CardinfoMoviesState extends State<CardinfoMovies> {
               AutoSizeText("${widget.movie.voteAverage}",
                   style: TextStyle(fontSize: 13, color: Colors.white)),
               IconButton(
-                  iconSize: 25,
-                  icon: Icon(
-                    Icons.favorite_border,
-                    color: Colors.white,
-                  ),
-                  onPressed: () {})
+                iconSize: 25,
+                onPressed: () {
+                  userBloc
+                      .addLikeMovie(AddlikeModel(
+                          mediaId: widget.movie.id,
+                          mediaType: widget.movie.mediaType,
+                          favorite: true))
+                      .whenComplete(() {
+                        setState(() {
+                          widget.cap=true;
+                        });
+                      });
+                },
+                icon: Icon(
+                  (widget.cap)?Icons.favorite : Icons.favorite_border,
+                  color: (widget.cap) ?Color(0xFFfb3958):Colors.white,
+                ),
+              )
             ],
           )
         ]),

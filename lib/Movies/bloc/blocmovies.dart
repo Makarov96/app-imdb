@@ -8,12 +8,15 @@ class BlocMovies extends Bloc {
   @override
 
 
-  final _cloudUserRepository = CloudMovieRepository();
+  final _cloudMovieRepository = CloudMovieRepository();
   
-  Future<MoviesModel> getlistMovies() => _cloudUserRepository.getlistMovies();
+  Future<MoviesModel> getlistMovies() => _cloudMovieRepository.getlistMovies();
 
-  Future<FindMoviesModel> findMovies(String movie) => _cloudUserRepository.findMovies(movie);
 
+  Future<List<Result>> findMoviesCustom(String movie) =>  _cloudMovieRepository.findMoviesCustom(movie);
+
+
+  
 
   get initialState => null;
 

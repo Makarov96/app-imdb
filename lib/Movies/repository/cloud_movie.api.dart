@@ -10,14 +10,21 @@ class Cloud_Movie_API {
     return movieModelFromJson(resp.body);
   }
 
-  //Find movies
-
-  Future<FindMoviesModel> findMovies(String movie) async{
-    final resp = await http.get(Config.findMovie+movie+Config.findEndMoviePart);
-    return findMoviesModelFromJson(resp.body);
+  Future<List<Result>> findMoviesCustom(String movie) async {
+    await Future.delayed(Duration(seconds: 2));
+    final resp =
+        await http.get(Config.findMovie + movie + Config.findEndMoviePart);
+    return findMoviesModelFromJson(resp.body).results;
   }
 
 
-
-
 }
+
+/*
+http.post(
+      Config.addFavoriteMovie,
+      headers: Config.headers,
+      body: addlikeModelToJson(infomovie),
+    );
+
+ */
