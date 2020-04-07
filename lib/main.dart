@@ -15,11 +15,17 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark),
     );
+    SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ]);
     return MultiBlocProvider(
         providers: [
           BlocProvider<BlocMovies>(create: (context)=>BlocMovies())

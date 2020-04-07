@@ -15,60 +15,61 @@ class _GridViewMyWatchListState extends State<GridViewMyWatchList> {
   BlocMovies blocMovies;
   @override
   Widget build(BuildContext context) {
-     blocMovies = BlocProvider.of(context);
+    blocMovies = BlocProvider.of(context);
 
     return FutureBuilder(
       future: blocMovies.getWatchlist(),
-  
       builder: (BuildContext context, AsyncSnapshot<Watchlistmodel> snapshot) {
-          switch (snapshot.connectionState) {
-             case ConnectionState.waiting:
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-              break;
-            case ConnectionState.none:
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-              break;
+        switch (snapshot.connectionState) {
+          case ConnectionState.waiting:
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+            break;
+          case ConnectionState.none:
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+            break;
 
-            case ConnectionState.done:
-              return mywatchlistMovies(snapshot.data.results);
-              break;
+          case ConnectionState.done:
+            if (snapshot.data == null) {
+              return Center(child: Text("Intenta mas tarde"));
+            }
+            return mywatchlistMovies(snapshot.data.results);
+            break;
 
-            case ConnectionState.active:
-              return mywatchlistMovies( snapshot.data.results);
-              break;
-            default:
-          }
+          case ConnectionState.active:
+            if (snapshot.data == null) {
+              return Center(child: Text("Intenta mas tarde"));
+            }
+            return mywatchlistMovies(snapshot.data.results);
+            break;
+          default:
+        }
       },
     );
   }
 
+  Widget mywatchlistMovies(List<Result> watchlistdata) {
+    return GridView.builder(
+        itemCount: watchlistdata.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            crossAxisSpacing: 5,
+            mainAxisSpacing: 5,
+            childAspectRatio: 1),
+        itemBuilder: (BuildContext context, int i) {
+          final watchlist = watchlistdata[i];
 
-  Widget mywatchlistMovies(List<Result> watchlistdata){
-      return GridView.builder(
-      itemCount:  watchlistdata.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        crossAxisSpacing: 5,
-        mainAxisSpacing: 5,
-        childAspectRatio: 1
-      ),
-      itemBuilder: (BuildContext context, int i){
-        final watchlist = watchlistdata[i];
-
-        return Container(
-          height: 150,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage("${Config.imagePathURL}${watchlist.posterPath}"),
-              fit: BoxFit.cover
-            )
-          ),
-        );
-
-      });
+          return Container(
+            height: 150,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: NetworkImage(
+                        "${Config.imagePathURL}${watchlist.posterPath}"),
+                    fit: BoxFit.cover)),
+          );
+        });
   }
 }

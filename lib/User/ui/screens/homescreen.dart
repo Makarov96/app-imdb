@@ -1,5 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:movies/User/ui/navbaruser/navbaruser.dart';
+import 'package:movies/User/ui/widgets/customappbar.dart';
 import 'package:movies/User/ui/widgets/gridviewmyfavoritesmovies.dart';
 import 'package:movies/User/ui/widgets/gridviewmywatchlist.dart';
 
@@ -42,11 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // Persistent AppBar that never scrolls
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text('Tu perfil', style: TextStyle(color: Colors.black),),
-        elevation: 0.0,
-      ),
+     appBar: PreferredSize(
+       preferredSize: Size.fromHeight(50.0),
+       child: CustomAppBar()),
       body: DefaultTabController(
         length: 2,
         child: NestedScrollView(

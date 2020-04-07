@@ -6,8 +6,6 @@ import 'package:movies/Movies/model/moviemodel.dart';
 import 'package:movies/Movies/ui/widgets/exports.dart';
 import 'package:movies/Widgets/Screen_Sizes/responsive_screens.dart';
 
-
-
 class GridViewMovies extends StatefulWidget {
   double _crossAxisSpacing = 15, _mainAxisSpacing = 12, _aspectRatio = 1;
 
@@ -39,12 +37,18 @@ class _GridViewMoviesState extends State<GridViewMovies> {
               break;
 
             case ConnectionState.done:
+              if (snapshot.data == null) {
+                return Center(child: Text("Intenta mas tarde"));
+              }
               return Center(
                 child: movieList(context, snapshot.data.items),
               );
               break;
 
             case ConnectionState.active:
+              if (snapshot.data == null) {
+                return Center(child: Text("Intenta mas tarde"));
+              }
               return Center(
                 child: movieList(context, snapshot.data.items),
               );
@@ -82,15 +86,16 @@ class _GridViewMoviesState extends State<GridViewMovies> {
               final movie = listmovie[i];
 
               return FadeInLeft(
-                duration:  Duration(milliseconds: 10*i),
-                child: CardinfoMovies(movie: Movie(
-                  mediaType: movie.mediaType,
-                  id: movie.id,
-                  backdropPath: movie.backdropPath ,
-                  overview: movie.overview ,
-                  posterPath: movie.posterPath, 
-                  voteAverage: movie.voteAverage, 
-                  title: movie.title)),
+                duration: Duration(milliseconds: 10 * i),
+                child: CardinfoMovies(
+                    movie: Movie(
+                        mediaType: movie.mediaType,
+                        id: movie.id,
+                        backdropPath: movie.backdropPath,
+                        overview: movie.overview,
+                        posterPath: movie.posterPath,
+                        voteAverage: movie.voteAverage,
+                        title: movie.title)),
               );
             }));
   }

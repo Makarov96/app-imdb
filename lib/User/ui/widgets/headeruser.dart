@@ -9,35 +9,38 @@ class HeaderUser extends StatelessWidget {
   UserBloc userBloc;
   HeaderUser({Key key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
-    userBloc=BlocProvider.of(context);
+    userBloc = BlocProvider.of(context);
     return SafeArea(
       child: Container(
         child: FutureBuilder(
           future: userBloc.getInfoUser(),
-
           builder: (BuildContext context, AsyncSnapshot<UserModel> snapshot) {
             switch (snapshot.connectionState) {
-
-              case  ConnectionState.none:
-                  return Center(
-                    child: Container(),
-                  );
+              case ConnectionState.none:
+                return Center(
+                  child: Container(),
+                );
                 break;
 
-              case  ConnectionState.waiting:
-                  return Center(
-                    child: Container(),
-                  );
+              case ConnectionState.waiting:
+                return Center(
+                  child: Container(),
+                );
                 break;
 
-              case  ConnectionState.active:
-                  return _showPersonalInfoUser(snapshot.data);
+              case ConnectionState.active:
+                if (snapshot.data == null) {
+                  return Center(child: Text("Intenta mas tarde"));
+                }
+                return _showPersonalInfoUser(snapshot.data);
                 break;
-              case  ConnectionState.done:
-                  return _showPersonalInfoUser(snapshot.data);
+              case ConnectionState.done:
+                if (snapshot.data == null) {
+                  return Center(child: Text("Intenta mas tarde"));
+                }
+                return _showPersonalInfoUser(snapshot.data);
                 break;
               default:
             }
@@ -47,8 +50,9 @@ class HeaderUser extends StatelessWidget {
     );
   }
 
-  Widget _showPersonalInfoUser(UserModel user){
-     return PersonalInfoUser(userModel: user,);
-
+  Widget _showPersonalInfoUser(UserModel user) {
+    return PersonalInfoUser(
+      userModel: user,
+    );
   }
 }
