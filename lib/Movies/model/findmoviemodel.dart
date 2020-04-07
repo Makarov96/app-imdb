@@ -46,7 +46,7 @@ class Result {
     String title;
     double voteAverage;
     String overview;
-   
+  
 
     Result({
         this.popularity,
@@ -62,7 +62,7 @@ class Result {
         this.title,
         this.voteAverage,
         this.overview,
-     
+      
     });
 
     factory Result.fromJson(Map<String, dynamic> json) => Result(

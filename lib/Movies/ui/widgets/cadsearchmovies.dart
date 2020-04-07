@@ -1,20 +1,21 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:movies/Movies/model/findmoviemodel.dart';
 import 'package:movies/Movies/model/moviemodel.dart';
 import 'package:movies/Movies/ui/screens/screenreviewmovie.dart';
-import 'package:movies/User/bloc/userbloc.dart';
+
 import 'package:movies/Utils/config.dart';
 import 'package:movies/Widgets/Screen_Sizes/responsive_screens.dart';
 import 'package:movies/Widgets/Transitions/fade_route.dart';
 
 class CardSearchinfoMovies extends StatefulWidget {
   final Result movie;
-  bool cap;
 
-  CardSearchinfoMovies({Key key, this.movie}) : super(key: key);
+   final VoidCallback onPressed;
+
+  CardSearchinfoMovies({Key key, this.movie, this.onPressed}) : super(key: key);
 
   @override
   _CardSearchinfoMoviesState createState() => _CardSearchinfoMoviesState();
@@ -22,19 +23,15 @@ class CardSearchinfoMovies extends StatefulWidget {
 
 class _CardSearchinfoMoviesState extends State<CardSearchinfoMovies> {
 
+ 
   @override
-  void initState() {
-    super.initState();
-    widget.cap = false;
-  }
-
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     double _pixeRatio = MediaQuery.of(context).devicePixelRatio;
     bool medium = ResponsiveWidget.isScreenMedium(screenWidth, _pixeRatio);
     bool large = ResponsiveWidget.isScreenLarge(screenWidth, _pixeRatio);
-   
+
 
     String imgagePath = "${Config.imagePathURL}${widget.movie.posterPath}";
     (imgagePath == "https://image.tmdb.org/t/p/w500null")
@@ -88,8 +85,7 @@ class _CardSearchinfoMoviesState extends State<CardSearchinfoMovies> {
                     style: TextStyle(
                         fontSize: (large) ? 28 : (medium) ? 15 : 15,
                         color: Colors.black)),
-              
-               
+               FlatButton(splashColor: Colors.grey.withOpacity(0.5) ,onPressed: widget.onPressed, child: Text("agregar a favoritos", style: TextStyle(color: Color(0xFFfb3958)),))
               ],
             )
           ]),

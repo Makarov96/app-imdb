@@ -12,7 +12,7 @@ import 'package:movies/Widgets/Transitions/fade_route.dart';
 
 class CardinfoMovies extends StatefulWidget {
   final Movie movie;
-   bool cap;
+  bool cap;
 
   CardinfoMovies({Key key, this.movie}) : super(key: key);
 
@@ -21,15 +21,16 @@ class CardinfoMovies extends StatefulWidget {
 }
 
 class _CardinfoMoviesState extends State<CardinfoMovies> {
-  UserBloc  userBloc;
- 
+  BlocMovies blocMovies;
+
   @override
-  void initState() { 
+  void initState() {
     super.initState();
-    widget.cap=false;
+    widget.cap = false;
   }
+
   Widget build(BuildContext context) {
-    userBloc = BlocProvider.of(context);
+    blocMovies = BlocProvider.of<BlocMovies>(context);
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
@@ -57,6 +58,7 @@ class _CardinfoMoviesState extends State<CardinfoMovies> {
                   FadeRoute(
                       page: ScreenReviewMovie(
                     movie: Movie(
+                        id: widget.movie.id,
                         title: widget.movie.title,
                         voteAverage: widget.movie.voteAverage,
                         overview: widget.movie.overview,
@@ -80,20 +82,20 @@ class _CardinfoMoviesState extends State<CardinfoMovies> {
               IconButton(
                 iconSize: 25,
                 onPressed: () {
-                  userBloc
+                  blocMovies
                       .addLikeMovie(AddlikeModel(
                           mediaId: widget.movie.id,
                           mediaType: widget.movie.mediaType,
                           favorite: true))
                       .whenComplete(() {
-                        setState(() {
-                          widget.cap=true;
-                        });
-                      });
+                    setState(() {
+                      widget.cap = true;
+                    });
+                  });
                 },
                 icon: Icon(
-                  (widget.cap)?Icons.favorite : Icons.favorite_border,
-                  color: (widget.cap) ?Color(0xFFfb3958):Colors.white,
+                  (widget.cap) ? Icons.favorite : Icons.favorite_border,
+                  color: (widget.cap) ? Color(0xFFfb3958) : Colors.white,
                 ),
               )
             ],

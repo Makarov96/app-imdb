@@ -12,27 +12,7 @@ class CloudUserApi {
     return userModelFromJson(resp.body);
   }
 
-  Future<http.Response> addLikeMovie(AddlikeModel infomovie) async {
-    http.Response response = await http.post(Config.addFavoriteMovie,
-        headers: Config.headers, body: addlikeModelToJson(infomovie));
+  
 
-    return response;
-  }
-
-  Future<Myfavoritemovies> getlistFavoriteMovies() async {
-    final resp = await http.get(Config.myfavoriteMoviesList);
-    return myfavoritemoviesFromJson(resp.body);
-  }
-
-
-  Future<http.Response> addWatchlist(Addwatchlistmodel addwatchlistmodel) async{
-    http.Response response = await http.post(Config.addWatchList, headers: Config.headers, body: addwatchlistmodelToJson(addwatchlistmodel));
-    return response;
-  }
-
-
-  Future<Watchlistmodel> getWatchlist() async{
-    final resp = await http.get(Config.myWatchlist);
-    return watchlistmodelFromJson(resp.body);
-  }
+ 
 }

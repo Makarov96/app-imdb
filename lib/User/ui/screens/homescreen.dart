@@ -1,8 +1,10 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:movies/User/ui/widgets/gridviewmyfavoritesmovies.dart';
+import 'package:movies/User/ui/widgets/gridviewmywatchlist.dart';
+
 import 'package:movies/User/ui/widgets/headeruser.dart';
-import 'package:movies/User/ui/widgets/userbodyscreen.dart';
+
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -70,19 +72,10 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: TabBarView(
                   children: [
-                    GridView.count(
-                      padding: EdgeInsets.zero,
-                      crossAxisCount: 3,
-                      children: Colors.primaries.map((color) {
-                        return Container(color: color, height: 150.0);
-                      }).toList(),
-                    ),
-                    ListView(
-                      padding: EdgeInsets.zero,
-                      children: Colors.primaries.map((color) {
-                        return Container(color: color, height: 150.0);
-                      }).toList(),
-                    )
+                   //aca va el grid vie de la data
+                   //-----------------------------
+                   GridViewMyFavoritesMovies(),
+                   GridViewMyWatchList()
                   ],
                 ),
               ),
