@@ -1,12 +1,13 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
+part 'usermodel.g.dart';
 
-String userModelToJson(UserModel data) => json.encode(data.toJson());
+@JsonSerializable()
 
-class UserModel extends Equatable {
+class UserModel extends Equatable  {
     Avatar avatar;
     int id;
     String iso6391;
@@ -48,7 +49,12 @@ class UserModel extends Equatable {
   @override
   // TODO: implement props
   List<Object> get props => null;
+
+
 }
+
+UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
+String userModelToJson(UserModel data) => json.encode(data.toJson());
 
 class Avatar {
     Gravatar gravatar;

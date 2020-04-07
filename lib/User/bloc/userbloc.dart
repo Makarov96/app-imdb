@@ -1,6 +1,5 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies/User/model/myfavoritemovesmodel.dart';
 import 'package:movies/User/model/usermodel.dart';
 import 'package:movies/User/repository/cloud_user_repository.dart';
 
@@ -10,7 +9,7 @@ class UserBloc extends Bloc {
   final _cloudUserRepository = CloudUserRepository();
 
    //Informacion del usuario
-     Future<UserModel> getInfoUser() => _cloudUserRepository.getInfoUser();
+  Future<UserModel> getInfoUser() => _cloudUserRepository.getInfoUser();
 
 
 

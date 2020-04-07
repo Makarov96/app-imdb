@@ -36,6 +36,7 @@ class _GridViewMyFavoritesMoviesState extends State<GridViewMyFavoritesMovies> {
           case ConnectionState.done:
             if (snapshot.data == null) {
               return Center(child: Text("Intenta mas tarde"));
+              break;
             }
             return myFavoriteMovies(snapshot.data.results);
             break;
@@ -43,6 +44,7 @@ class _GridViewMyFavoritesMoviesState extends State<GridViewMyFavoritesMovies> {
           case ConnectionState.active:
             if (snapshot.data == null) {
               return Center(child: Text("Intenta mas tarde"));
+              break;
             }
             return myFavoriteMovies(snapshot.data.results);
             break;

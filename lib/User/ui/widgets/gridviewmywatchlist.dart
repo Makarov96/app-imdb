@@ -35,6 +35,7 @@ class _GridViewMyWatchListState extends State<GridViewMyWatchList> {
           case ConnectionState.done:
             if (snapshot.data == null) {
               return Center(child: Text("Intenta mas tarde"));
+               break;
             }
             return mywatchlistMovies(snapshot.data.results);
             break;
@@ -42,6 +43,7 @@ class _GridViewMyWatchListState extends State<GridViewMyWatchList> {
           case ConnectionState.active:
             if (snapshot.data == null) {
               return Center(child: Text("Intenta mas tarde"));
+               break;
             }
             return mywatchlistMovies(snapshot.data.results);
             break;

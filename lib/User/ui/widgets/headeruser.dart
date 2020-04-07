@@ -33,12 +33,15 @@ class HeaderUser extends StatelessWidget {
               case ConnectionState.active:
                 if (snapshot.data == null) {
                   return Center(child: Text("Intenta mas tarde"));
+                  break;
                 }
                 return _showPersonalInfoUser(snapshot.data);
                 break;
               case ConnectionState.done:
                 if (snapshot.data == null) {
+                  
                   return Center(child: Text("Intenta mas tarde"));
+                  break;
                 }
                 return _showPersonalInfoUser(snapshot.data);
                 break;

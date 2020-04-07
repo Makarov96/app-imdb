@@ -39,15 +39,18 @@ class _GridViewMoviesState extends State<GridViewMovies> {
             case ConnectionState.done:
               if (snapshot.data == null) {
                 return Center(child: Text("Intenta mas tarde"));
+                 break;
               }
               return Center(
                 child: movieList(context, snapshot.data.items),
+                
               );
               break;
 
             case ConnectionState.active:
               if (snapshot.data == null) {
                 return Center(child: Text("Intenta mas tarde"));
+                 break;
               }
               return Center(
                 child: movieList(context, snapshot.data.items),
