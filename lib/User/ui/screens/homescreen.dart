@@ -1,11 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:movies/User/ui/navbaruser/navbaruser.dart';
-import 'package:movies/User/ui/widgets/customappbar.dart';
-import 'package:movies/User/ui/widgets/gridviewmyfavoritesmovies.dart';
-import 'package:movies/User/ui/widgets/gridviewmywatchlist.dart';
+import 'package:movies/User/ui/widgets/userexports.dart';
 
-import 'package:movies/User/ui/widgets/headeruser.dart';
 
 
 class HomeScreen extends StatefulWidget {

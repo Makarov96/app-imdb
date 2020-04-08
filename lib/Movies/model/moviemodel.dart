@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:hive/hive.dart';
+
 MoviesModel movieModelFromJson(String str) => MoviesModel.fromJson(json.decode(str));
 
 String movieModelToJson(MoviesModel data) => json.encode(data.toJson());
@@ -51,22 +53,37 @@ class MoviesModel {
         "poster_path": posterPath,
     };
 }
-
-class Movie {
+@HiveType(typeId: 0)
+class Movie extends HiveObject {
+    @HiveField(0)
     String posterPath;
+    @HiveField(1)
     double popularity;
+    @HiveField(2)
     int voteCount;
+    @HiveField(3)
     bool video;
+    @HiveField(4)
     String mediaType;
+    @HiveField(5)
     int id;
+    @HiveField(6)
     bool adult;
+    @HiveField(7)
     String backdropPath;
+    @HiveField(8)
     String originalLanguage;
+    @HiveField(9)
     String originalTitle;
+    @HiveField(10)
     List<int> genreIds;
+    @HiveField(11)
     String title;
+    @HiveField(12)
     double voteAverage;
+    @HiveField(13)
     String overview;
+    @HiveField(14)
     DateTime releaseDate;
 
     Movie({

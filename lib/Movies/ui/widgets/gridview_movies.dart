@@ -1,13 +1,10 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies/Movies/bloc/blocmovies.dart';
-import 'package:movies/Movies/model/moviemodel.dart';
 import 'package:movies/Movies/ui/widgets/exports.dart';
-import 'package:movies/Widgets/Screen_Sizes/responsive_screens.dart';
+
 
 class GridViewMovies extends StatefulWidget {
   double _crossAxisSpacing = 15, _mainAxisSpacing = 12, _aspectRatio = 1;
+
 
   GridViewMovies({Key key}) : super(key: key);
 
@@ -18,9 +15,11 @@ class GridViewMovies extends StatefulWidget {
 class _GridViewMoviesState extends State<GridViewMovies> {
   BlocMovies movieBloc;
 
+
   @override
   Widget build(BuildContext context) {
     movieBloc = BlocProvider.of(context);
+
     return FutureBuilder(
         future: movieBloc.getlistMovies(),
         builder: (BuildContext context, AsyncSnapshot<MoviesModel> snapshot) {
@@ -39,22 +38,21 @@ class _GridViewMoviesState extends State<GridViewMovies> {
             case ConnectionState.done:
               if (snapshot.data == null) {
                 return Center(child: Text("Intenta mas tarde"));
-                 break;
               }
+
               return Center(
                 child: movieList(context, snapshot.data.items),
-                
               );
               break;
 
             case ConnectionState.active:
               if (snapshot.data == null) {
                 return Center(child: Text("Intenta mas tarde"));
-                 break;
               }
               return Center(
                 child: movieList(context, snapshot.data.items),
               );
+
               break;
             default:
           }
@@ -86,8 +84,9 @@ class _GridViewMoviesState extends State<GridViewMovies> {
                           : screenWidth / (screenHeight / 1.03),
             ),
             itemBuilder: (BuildContext context, int i) {
+              
               final movie = listmovie[i];
-
+      
               return FadeInLeft(
                 duration: Duration(milliseconds: 10 * i),
                 child: CardinfoMovies(

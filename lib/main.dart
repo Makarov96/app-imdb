@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:movies/Movies/ui/screens/searchmoviewscreen.dart';
+import 'package:movies/User/bloc/userbloc.dart';
 import 'package:movies/User/ui/navbaruser/navbaruser.dart';
 import 'Movies/bloc/blocmovies.dart';
 import 'Movies/ui/screens/screenreviewmovie.dart';
@@ -11,7 +11,6 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   WidgetsFlutterBinding.ensureInitialized();
-  BlocSupervisor.delegate = await HydratedBlocDelegate.build();
   return runApp(MyApp());
 }
 
@@ -27,7 +26,8 @@ class MyApp extends StatelessWidget {
     ]);
     return MultiBlocProvider(
         providers: [
-          BlocProvider<BlocMovies>(create: (context) => BlocMovies())
+          BlocProvider<BlocMovies>(create: (context) => BlocMovies()),
+          BlocProvider<UserBloc>(create: (context) => UserBloc())
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -43,7 +43,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-/*
-
-
-*/

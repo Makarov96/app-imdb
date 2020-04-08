@@ -5,7 +5,6 @@ import 'package:movies/Movies/bloc/blocmovies.dart';
 import 'package:movies/Movies/model/addlikemovie.dart';
 import 'package:movies/Movies/model/findmoviemodel.dart';
 import 'package:movies/Movies/ui/widgets/cadsearchmovies.dart';
-import 'package:movies/User/bloc/userbloc.dart';
 import 'package:movies/Utils/controlError.dart';
 
 class HeaderSearch extends StatefulWidget {
