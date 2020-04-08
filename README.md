@@ -38,3 +38,8 @@ samples, guidance on mobile development, and a full API reference.
 
   ### Method watchlist
   ![Farmers Market Finder Demo](demo/watchlist.gif)
+
+  ## Architectures implemented
+   1. Clean Architecture
+   2. BLoC Architecture
+
