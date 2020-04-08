@@ -24,17 +24,17 @@ samples, guidance on mobile development, and a full API reference.
  in the terminal in that folder of project write: flutter run  and enter
 
 ## Demo
-  cell screens
+  ### cell screens
  ![Farmers Market Finder Demo](demo/views.gif)
 
-  Tablet screens
+  ### Tablet screens
   ![Farmers Market Finder Demo](demo/tablet.gif)
 
-  Search screen
+  ### Search screen
   ![Farmers Market Finder Demo](demo/searchview.gif)
  
-  Method like
+  ### Method like
   ![Farmers Market Finder Demo](demo/like.gif)
 
-  Method watchlist
+  ### Method watchlist
   ![Farmers Market Finder Demo](demo/watchlist.gif)
