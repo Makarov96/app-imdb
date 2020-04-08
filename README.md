@@ -24,7 +24,7 @@ samples, guidance on mobile development, and a full API reference.
  in the terminal in that folder of project write: flutter run  and enter
 
 ## Demo
-  ### cell screens
+  ### cellphone screens
  ![Farmers Market Finder Demo](demo/views.gif)
 
   ### Tablet screens
