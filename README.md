@@ -17,8 +17,11 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Start project
 
-### Running: flutter packages get -v from the terminal in that folder
+ Running: flutter packages get -v from the terminal in that folder
 
-### Select a Device for run the project
+ Select a Device for run the project
 
-### in the terminal in that folder of project write: flutter run  and enter
+ in the terminal in that folder of project write: flutter run  and enter
+
+## Demo
+ ![Farmers Market Finder Demo](demo/views.gif)
