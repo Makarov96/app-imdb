@@ -1,6 +1,5 @@
 # movies
 
-Un protecto creado con Flutter.
 
 ## Getting Started
 
